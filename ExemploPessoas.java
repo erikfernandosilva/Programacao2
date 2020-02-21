@@ -10,7 +10,8 @@ package exemplopessoas;
  * @author IFFarroupilha
  */
 public class ExemploPessoas {
-    
+    // criacao da funcao apresentar, e seu comportamento,
+    // independente de qual instancia da classe pessoa seja utilizada
     static void apresentar (Pessoa um) {
     System.out.println ("Olá, eu sou " + um.nome);
     System.out.println ("E tenho " + um.idade + " anos");
@@ -21,23 +22,26 @@ public class ExemploPessoas {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // criacao de p1 e atribuicao de valores
         Pessoa p1 = new Pessoa ();
         p1.nome = "Jose";
         p1.altura = 1.89;
         p1.idade = 25;
         
+        // criacao de p2 e atribuicao de valores
         Pessoa p2 = new Pessoa ();
         p2.nome = "Fernando";
         p2.idade = 36;
         p2.altura = 1.75;
         
+        // chamando a funcao apresentar para cada instancia
         apresentar (p1);
         apresentar (p2);
     }
     
 }
 
+// criacao da classe pessoa, com suas variaveis definidas
 class Pessoa{
     String nome;
     int idade;
