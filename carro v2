@@ -1,0 +1,83 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication2;
+
+/**
+ *
+ * @author IFFarroupilha
+ */
+public class Carro {
+    String marca;
+    int ano;
+    int idade;
+    double valor;
+    double vel_max;
+    
+    // criacao do construtor
+    Carro (int anop){
+        ano = anop;
+        idade = 2020 - anop;
+        marca = "Rimac";
+        valor = 75000;
+        vel_max = 405;
+    }
+    Carro (String marcap,int anop,float valorp){
+	marca = marcap;
+	ano = anop;
+	valor = valorp;
+	idade = 2020 - ano;
+	vel_max = 80;
+    }
+    Carro (String marcap){
+        marca = marcap;
+    }
+    
+    // crie um construtor que recebe dois carros
+    // e inicializa um novo carro com os valores do mais caro
+     Carro (Carro a, Carro b){
+         if (a.valor > b.valor){
+                marca = a.marca;
+                ano = a.ano;
+                valor = a.valor;
+         }
+         else{
+                marca = b.marca;
+                ano = b.ano;
+                valor = b.valor;
+         }
+     } 
+    
+    //criacao da funcao imprimir
+    // o void significa que não é esperado retorno para a propria funcao
+    void imprimir(){
+        System.out.println("Marca: " + marca);
+        System.out.println("Ano: " + ano);
+        System.out.println("Valor: " + valor);
+    }
+    void depreciar(){
+        // sem parametro
+        // isso significa que o valor nao é informado
+        valor -= 100;
+        System.out.println (valor);
+        if (valor < 0){
+            valor = 0;
+        }
+    }
+    void queda (int valorqueda){
+        // com parametro
+        // o valor de queda é informado diretamente no codigo
+        valor = valor - valorqueda;
+        System.out.println (valor);
+    }
+    void correr (float vel){
+        if (vel > vel_max){
+            System.out.println (vel_max);
+        }
+        else{
+            System.out.println (vel);
+        }
+    }
+}
