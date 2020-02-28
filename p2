@@ -1,0 +1,30 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package pessoadois;
+
+/**
+ *
+ * @author IFFarroupilha
+ */
+public class PessoaUm {
+            String nome;
+            int anonasc;
+            PessoaUm pai;
+            
+        PessoaUm (String nomep){
+            nome = nomep;
+            anonasc = 2000;
+        }
+        PessoaUm (String nomep,int anop){
+            nome = nomep;
+            anonasc = anop;
+        }
+        PessoaUm (String nomea,int anoa, PessoaUm pai){
+            nome = nomea;
+            anonasc = anoa;
+            pai = pai;
+        }
+}
