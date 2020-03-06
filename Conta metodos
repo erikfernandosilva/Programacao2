@@ -1,0 +1,81 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package conta;
+
+/**
+ *
+ * @author IFFarroupilha
+ */
+class Pessoa{
+    String nome;
+    int idade;
+    double altura;
+    
+    Pessoa (String nomep){
+        nome = nomep;
+    }
+}
+
+class Conta {
+    private float saldo;
+    private Pessoa dono;
+    
+    Conta (){
+        saldo = 0;
+        dono = null;
+    }
+    
+    Conta (Pessoa novo_dono){
+        dono = novo_dono;
+        saldo = 100;
+    }
+    
+    public void sacar (float valor){
+            if (saldo >= valor){
+                System.out.println ("Transação aprovada");
+                saldo = saldo - valor;
+                System.out.println ("Saquei " + valor);
+                System.out.println ("Saldo de: " + saldo);
+            }
+            else {
+                System.out.println ("Transação negada");
+                System.out.println ("Seu saldo é: " + saldo);
+            }
+    }
+    
+    public void depositar (float quantia_depositada){
+        saldo += quantia_depositada;
+        System.out.println("Deposito recebido, novo valor: " + saldo);
+    }
+    
+    public float getSaldo(){
+        return saldo;
+    }
+    
+    public void setSaldo (float novo_saldo){
+        if (novo_saldo < 0){
+            System.out.println("Não foi possível inserir este saldo");
+        }
+        else{
+            saldo = novo_saldo;
+        }
+    }
+    
+    public String getNomeDono(){
+        return dono.nome;
+    }
+    
+    public static void transferir (Conta origem,Conta destino,float valor){
+        if (valor > origem.getSaldo()){
+            System.out.println("Transação inválida");
+        }
+        else {
+            origem.sacar(valor);
+            destino.depositar (valor);
+            System.out.println("Transação entre contas aprovada!");
+        }
+    }
+}
